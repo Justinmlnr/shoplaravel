@@ -12,7 +12,7 @@
 
     @section('content')
     <ul>
-        @forelse ( $products as $product )
+        @forelse ($products as $product)
         <li>
             ID : {{ $product["id"] }} <br />
             nom : {{ $product["nom"] }} <br />
@@ -25,7 +25,7 @@
     </ul>
 
     <ul>
-        @foreach ( $products as $product )
+        @foreach ($products as $product)
         <li>
             ID : {{ $product["id"] }} <br />
             nom : {{ $product["nom"] }} <br />
@@ -37,4 +37,4 @@
     @endsection
 </body>
 
-</html>
+</html>S

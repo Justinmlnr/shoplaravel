@@ -10,7 +10,7 @@
 <body>
     @extends('layouts.app')
     @section('content')
-    <h1>Bienvenue sur notre boutique</h1>
+    <h1 class="text-3xl font-bold mb-4">Bienvenue sur notre boutique</h1>
     <p> Découvrez une sélection soigneusement choisie de produits de qualité, pensés pour vous simplifier la vie.
         Bonne visite et excellent shopping sur notre shop propulsé par Laravel </p>
 
