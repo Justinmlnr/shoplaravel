@@ -14,8 +14,11 @@ Route::get('/', [PageController::class, 'home'])
 Route::get('/about', [PageController::class, 'about'])
     ->name('products.about');
 
-Route::get('/products/{id}', [ProductController::class, 'index'])
+Route::get('/products', [ProductController::class, 'index'])
     ->name('products.index');
+
+Route::get('/products/{id}', [ProductController::class, 'show'])
+    ->name('products.show');
 
 
 

@@ -1,40 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+@section('title', 'Catalogue')
 
-<body>
-    @extends('layouts.app')
+@section('content')
+<ul>
+    @forelse ($products as $product)
+    <li>
+        ID : {{ $product->id}} <br />
+        nom : {{ $product->name }} <br />
+        prix : {{ $product->price }} €
+    </li>
+    @empty
+    <p> produit non trouvé</p>
+    @endforelse
 
-    @section('content')
-    <ul>
-        @forelse ($products as $product)
-        <li>
-            ID : {{ $product["id"] }} <br />
-            nom : {{ $product["nom"] }} <br />
-            prix : {{ $product["prix"] }} €
-        </li>
-        @empty
-        <p> produit non trouvé</p>
-        @endforelse
+</ul>
 
-    </ul>
+<ul>
+    @foreach ($products as $product)
+    <li>
+        ID : {{ $product->id}} <br />
+        nom : {{ $product->name }} <br />
+        prix : {{ $product->price }} €
+    </li>
+    <a href="{{ route('products.show', ['id' => $product->id]) }}">voir détails</a>
+    @endforeach
 
-    <ul>
-        @foreach ($products as $product)
-        <li>
-            ID : {{ $product["id"] }} <br />
-            nom : {{ $product["nom"] }} <br />
-            prix : {{ $product["prix"] }} €
-        </li>
-        @endforeach
-
-    </ul>
-    @endsection
-</body>
-
-</html>S
+</ul>
+@endsection
