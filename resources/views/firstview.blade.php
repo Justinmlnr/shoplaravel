@@ -14,8 +14,8 @@
     <p> Découvrez une sélection soigneusement choisie de produits de qualité, pensés pour vous simplifier la vie.
         Bonne visite et excellent shopping sur notre shop propulsé par Laravel </p>
 
-    <h2> Nom : {{ $boutique["nom"] }}</h2>
-    <p> Stock : {{ $boutique["stock"] }}</p>
+    <!-- <h2> Nom : {{ $boutique["nom"] }}</h2>
+    <p> Stock : {{ $boutique["stock"] }}</p> -->
     <!-- <p> Etat : {{ $boutique["etat"] }}</p> -->
 
     @if ($boutique["etat"] === "ouvert")

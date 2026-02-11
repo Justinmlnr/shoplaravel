@@ -23,13 +23,19 @@ class PageController extends Controller
     //     'boutique' => $boutique,
     //     'id' => $id
     // ]);
-
-
-
-
-    // public function about(): string
-    // {
-    //     return "Ceci est une boutique dédiée à Laravel";
-    // }
     }
+
+
+
+
+    public function about(): string
+    {
+        return view('about');
+    }
+    public function contact(): string
+    {
+        return view("contact");
+    }
+
+    
 }
