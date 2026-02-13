@@ -16,6 +16,8 @@
             <a href="{{ url('/about') }}">About</a> |
             <a href="{{ url('/contact') }}">Contact</a> |
             <a href="{{ url('/products/create') }}">Crée un produit</a> |
+            <a href="{{ route('categories.index') }}">Catégories</a>
+
     </header>
 
     <main class="container mx-auto py-8">

@@ -3,7 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\ResourceController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CartController;
 
 
 Route::get("/hello", function () {
@@ -20,3 +21,21 @@ Route::get('/contact', [PageController::class, 'contact'])
     ->name('contact');
 
 Route::resource('/products', ProductController::class);
+
+
+Route::get('/categories/{category:slug}', [CategoryController::class, 'show'])
+    ->name('categories.show.slug');
+
+Route::get('/categories/{category}', [CategoryController::class, 'show'])
+    ->name('categories.show');
+
+
+Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
+Route::get('/categories/{category:slug}', [CategoryController::class, 'show'])->name('categories.show');
+
+
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::post('/cart/{product}', [CartController::class, 'add'])->name('cart.add');
+Route::patch('/cart/{product}', [CartController::class, 'update'])->name('cart.update');
+Route::delete('/cart/{product}', [CartController::class, 'remove'])->name('cart.remove');
+Route::delete('/cart', [CartController::class, 'clear'])->name('cart.clear');

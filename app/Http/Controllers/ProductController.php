@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use DB;
 use Illuminate\Http\Request;
 use App\Models\Product;
 
@@ -19,39 +20,10 @@ class ProductController extends Controller
     }
     public function index()
     {
-        $products = Product::all();
-        // $products = [
-        //     [
-        //         'id' => 1,
-        //         'nom' => 'Vanilla',
-        //         'prix' => 180
-        //     ],
-        //     [
-        //         'id' => 2,
-        //         'nom' => 'Tobacco',
-        //         'prix' => 230
-        //     ],
-        //     [
-        //         'id' => 3,
-        //         'nom' => 'Neroli',
-        //         'prix' => 270
-        //     ],
-        //     [
-        //         'id' => 4,
-        //         'nom' => 'Soleil Blanc',
-        //         'prix' => 210
-        //     ],
-        //     [
-        //         'id' => 5,
-        //         'nom' => 'Satin oud',
-        //         'prix' => 200
-        //     ]
-        // ];
-
-        // return view('/products.index', [
-        //     'products' => $products
+        // $products = Product::all();
+        $products = Product::with('category')->get();
+        
         return view('products.index', compact('products')); // alternatif pour tableau
-
     }
 
     /**
@@ -91,7 +63,9 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        return view('products.edit', compact('product'));
+        $category= Category::all();
+        return view('products.edit', compact('product', 'category'));
+       
     }
 
     /**

@@ -30,10 +30,22 @@
         <input type="number" name="stock" value="{{ old('stock', $product->stock) }}"class="w-full border rounded px-3 py-2">
     </div>
 
-    <div class="mb-4">
-        <label class="block font-medium mb-1">Catégorie</label>
-        <input type="number" name="category_id" value="{{ old('category_id', $product->category_id) }}"class="w-full border rounded px-3 py-2">
-    </div>
+  <div class="mb-4">
+    <label for="category_id" class="block font-medium mb-1">Catégorie</label>
+
+    <select name="category_id" id="category_id"
+            class="w-full border rounded px-3 py-2" required>
+
+        @foreach ( $category as $cat)
+            <option value="{{ $cat->id }}"
+                {{ old('category_id', $product->category_id) == $cat->id ? 'selected' : '' }}>
+                {{ $cat->name }}
+            </option>
+        @endforeach
+
+    </select>
+</div>
+
 
     <button type="submit" class=" bg-blue-500 text-white px-4 py-2 rounded">Modifier</button>
 
